@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/modalForm.js" defer></script>
+    <script src="js/table.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="modal__openModal">
+      <button class="modal__openModalButton button">
+        Открыть модальное окно
+      </button>
+    </div>
+    <div class="modal__openModal">
+      <input
+        placeholder="Поиск по title"
+        type="text"
+        name="tableSearch"
+        id="tableSearch"
+      />
+    </div>
+    <table></table>
+    <div class="modal">
+      <div class="modal__box">
+        <button class="modal__closeButton__svg closeButton">
+          <img
+            class="modal__closeButtonImage"
+            src="svg/modalClose.svg"
+            alt="Close"
+          />
+        </button>
+        <div class="modal__heading">Стать партнером проекта</div>
+        <form class="modal__form" novalidate autocomplete="off">
+          <div class="modal__inputs">
+            <div class="modal__firstInputs">
+              <div class="modal__firstInputs__default">
+                <div class="modal__input">
+                  <label for="name" class="modal__inputLabel"
+                    ><span class="redColor requiredFieldSign">*</span> Название
+                    организации</label
+                  >
+                  <input
+                    class="modal__inputField"
+                    name="name"
+                    id="name"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="АВЦ"
+                    data-req
+                  />
+                  <div class="modal__inputError redColor">Error</div>
+                </div>
+                <div class="modal__input">
+                  <label for="email" class="modal__inputLabel"
+                    ><span class="redColor requiredFieldSign">*</span>
+                    E-mail</label
+                  >
+                  <input
+                    class="modal__inputField"
+                    name="email"
+                    id="email"
+                    type="email"
+                    autocomplete="off"
+                    placeholder="avc@gmail.com"
+                    data-req
+                  />
+                  <div class="modal__inputError redColor">Error</div>
+                </div>
+                <div class="modal__input">
+                  <label for="phoneNumber" class="modal__inputLabel"
+                    ><span class="redColor requiredFieldSign">*</span>
+                    Телефон</label
+                  >
+                  <input
+                    class="modal__inputField"
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    type="tel"
+                    autocomplete="off"
+                    placeholder="+7 933 848-34-33"
+                    data-req
+                  />
+                  <div class="modal__inputError redColor">Error</div>
+                </div>
+              </div>
+              <div class="modal__input__file">
+                <div>
+                  <span class="redColor requiredFieldSign">*</span> Логотип
+                  (jpeg, png)
+                </div>
+                <label for="image" class="modal__inputLabel__file">
+                  <img
+                    class="modal__inputLabelImage__file"
+                    src="svg/chooseFile.svg"
+                    alt="Файл"
+                  />
+                  <div class="modal__inputLabelText__file">Выберите файл</div>
+                </label>
+                <input
+                  class="modal__inputField__file"
+                  type="file"
+                  name="image"
+                  id="image"
+                  onchange="PreviewImage();"
+                  data-req
+                />
+                <div class="modal__inputError redColor">Error</div>
+              </div>
+            </div>
+            <div class="modal__input selectInput">
+              <label for="company" class="modal__inputLabel"
+                ><span class="redColor requiredFieldSign">*</span>
+                Направление</label
+              >
+              <select
+                class="modal__inputField"
+                name="direction"
+                id="direction"
+                data-req
+              >
+                <option value="">Выберите направление</option>
+                <option value="economy">Экономика</option>
+                <option value="agronomy">Агрономика</option>
+              </select>
+              <div class="modal__inputError redColor">Error</div>
+            </div>
+            <div class="modal__input__noLabel">
+              <input
+                class="modal__inputField__noLabel"
+                name="url"
+                type="url"
+                placeholder="avc.ru"
+              />
+              <img class="modal__input__svg" src="svg/url.svg" alt="url" />
+            </div>
+            <div class="modal__input__noLabel">
+              <input
+                class="modal__inputField__noLabel"
+                name="urlVK"
+                type="url"
+                placeholder="vk.com/..."
+              />
+              <img class="modal__input__svg" src="svg/vk.svg" alt="url" />
+            </div>
+            <div class="modal__input__noLabel">
+              <input
+                class="modal__inputField__noLabel"
+                name="urlOK"
+                type="url"
+                placeholder="ok.com/..."
+              />
+              <img class="modal__input__svg" src="svg/ok.svg" alt="url" />
+            </div>
+            <div class="modal__input__noLabel">
+              <input
+                class="modal__inputField__noLabel"
+                name="urlFB"
+                type="url"
+                placeholder="facebook.com/..."
+              />
+              <img class="modal__input__svg" src="svg/fb.svg" alt="url" />
+            </div>
+            <div class="modal__input__noLabel">
+              <input
+                class="modal__inputField__noLabel"
+                name="urlInst"
+                type="url"
+                placeholder="instagram.com/..."
+              />
+              <img class="modal__input__svg" src="svg/inst.svg" alt="url" />
+            </div>
+            <div class="modal__input__noLabel">
+              <input
+                class="modal__inputField__noLabel"
+                name="urlYT"
+                type="url"
+                placeholder="youtube.com/..."
+              />
+              <img class="modal__input__svg" src="svg/yt.svg" alt="url" />
+            </div>
+            <div class="modal__input">
+              <label for="director" class="modal__inputLabel">
+                Руководитель</label
+              >
+              <input
+                class="modal__inputField"
+                name="director"
+                id="director"
+                type="text"
+                autocomplete="off"
+                placeholder="Александров Иван"
+              />
+            </div>
+          </div>
+          <div
+            class="modal__data-overallError redColor"
+            data-overallError
+          ></div>
+          <button
+            class="modal__button modalButton"
+            type="submit"
+            disabled
+            id="modalSubmitButton"
+          >
+            Стать партнером проекта
+          </button>
+        </form>
+        <button class="modal__closeButton closeButton">Отменить</button>
+      </div>
+    </div>
+  </body>
+</html>
