@@ -84,6 +84,7 @@ body {
 
 .modal__button:disabled {
   background-color: var(--button-color-disabled);
+  cursor: default;
 }
 
 .modal__inputs {
