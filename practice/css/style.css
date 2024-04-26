@@ -239,11 +239,11 @@ body {
   display: block;
 }
 
-.modal__data-overallError {
+.modal__data-overallError[data-overallError="false"] {
   display: none;
 }
 
-.modal__data-overallError[data-error="true"] {
+.modal__data-overallError[data-overallError="true"] {
   display: block;
 }
 
@@ -253,15 +253,15 @@ table {
   width: 100%;
 }
 
+th {
+  background-color: #dddddd;
+}
+
 td,
 th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
 }
 
 @media screen and (max-width: 768px) {

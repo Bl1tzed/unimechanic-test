@@ -7,8 +7,10 @@ async function fetchData() {
 
   const tr = table.appendChild(document.createElement("tr"));
 
-  for (let key in data[0]) {
-    let i = 0;
+  const dataKeys = Object.keys(data[0]);
+
+  for (let i = 0; i < dataKeys.length; i++) {
+    const key = dataKeys[i];
     const th = tr.appendChild(document.createElement("th"));
     th.innerHTML = key;
     if (key === "id" || key === "userId") {
@@ -16,7 +18,6 @@ async function fetchData() {
     } else {
       th.addEventListener("click", () => sortTable(i));
     }
-    i++;
   }
 
   for (let i = 0; i < data.length; i++) {
@@ -84,20 +85,21 @@ function sortTable(n) {
     shouldSwitch,
     dir = "asc",
     switchcount = 0;
+
   while (switching) {
     switching = false;
     rows = table.rows;
     for (i = 1; i < rows.length - 1; i++) {
       shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
+      x = rows[i].getElementsByTagName("TD")[n].innerHTML;
+      y = rows[i + 1].getElementsByTagName("TD")[n].innerHTML;
       if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        if (x.localeCompare(y) === 1) {
           shouldSwitch = true;
           break;
         }
       } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        if (x.localeCompare(y) === -1) {
           shouldSwitch = true;
           break;
         }

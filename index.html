@@ -30,6 +30,7 @@
             class="modal__closeButtonImage"
             src="practice/svg/modalClose.svg"
             alt="Close"
+            draggable="false"
           />
         </button>
         <div class="modal__heading">Стать партнером проекта</div>
@@ -96,6 +97,7 @@
                     class="modal__inputLabelImage__file"
                     src="practice/svg/chooseFile.svg"
                     alt="Файл"
+                    draggable="false"
                   />
                   <div class="modal__inputLabelText__file">Выберите файл</div>
                 </label>
@@ -138,6 +140,7 @@
                 class="modal__input__svg"
                 src="practice/svg/url.svg"
                 alt="url"
+                draggable="false"
               />
             </div>
             <div class="modal__input__noLabel">
@@ -151,6 +154,7 @@
                 class="modal__input__svg"
                 src="practice/svg/vk.svg"
                 alt="url"
+                draggable="false"
               />
             </div>
             <div class="modal__input__noLabel">
@@ -164,6 +168,7 @@
                 class="modal__input__svg"
                 src="practice/svg/ok.svg"
                 alt="url"
+                draggable="false"
               />
             </div>
             <div class="modal__input__noLabel">
@@ -177,6 +182,7 @@
                 class="modal__input__svg"
                 src="practice/svg/fb.svg"
                 alt="url"
+                draggable="false"
               />
             </div>
             <div class="modal__input__noLabel">
@@ -190,6 +196,7 @@
                 class="modal__input__svg"
                 src="practice/svg/inst.svg"
                 alt="url"
+                draggable="false"
               />
             </div>
             <div class="modal__input__noLabel">
@@ -203,6 +210,7 @@
                 class="modal__input__svg"
                 src="practice/svg/yt.svg"
                 alt="url"
+                draggable="false"
               />
             </div>
             <div class="modal__input">
@@ -219,10 +227,9 @@
               />
             </div>
           </div>
-          <div
-            class="modal__data-overallError redColor"
-            data-overallError
-          ></div>
+          <div class="modal__data-overallError" data-overallError="true">
+            Пожалуйста, заполните все необходимые поля
+          </div>
           <button
             class="modal__button modalButton"
             type="submit"

@@ -44,6 +44,15 @@ function validatePhone(phone) {
   return re.test(String(phone));
 }
 
+function overallError(
+  state,
+  text = "Пожалуйста, заполните все необходимые поля"
+) {
+  overallErrorMessage.setAttribute("data-overallError", state);
+  overallErrorMessage.classList.add("redColor");
+  overallErrorMessage.textContent = text;
+}
+
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", () => {
     modal.style.display = "flex";
@@ -56,7 +65,7 @@ for (let i = 0; i < modalCloseButton.length; i++) {
 
 document.addEventListener("mousedown", (e) => {
   if (!modalBox.contains(e.target) && e.target === modal) {
-    e.target.style.display = "none";
+    closeModal(modal);
   }
 });
 
@@ -81,18 +90,22 @@ modalForm.addEventListener("submit", function (e) {
   if (!validateEmail(emailValue)) {
     emailInput.setAttribute("data-error", "true");
     emailInput.nextSibling.nextSibling.textContent = "Неправильный Email";
+    overallError(true, "Поля имеют некорректные данные");
   } else {
     emailInput.removeAttribute("data-error");
     isEmailValid = true;
+    overallError(false);
   }
 
   if (!validatePhone(phoneValue)) {
     phoneNumberInput.setAttribute("data-error", "true");
     phoneNumberInput.nextSibling.nextSibling.textContent =
-      "Неправильнйы номер телефона";
+      "Неправильный номер телефона";
+    overallError(true, "Поля имеют некорректные данные");
   } else {
     phoneNumberInput.removeAttribute("data-error");
     isPhoneValid = true;
+    overallError(false);
   }
 
   reqInputs.forEach((input) => {
@@ -106,17 +119,16 @@ modalForm.addEventListener("submit", function (e) {
   });
 
   if (emptyInputs.length !== 0) {
-    overallErrorMessage.setAttribute("data-error", "true");
-    overallErrorMessage.textContent =
-      "Пожалуйста, заполните все необходимые поля";
+    overallError(true);
     return false;
   } else {
-    overallErrorMessage.removeAttribute("data-error");
+    overallError(false);
   }
 
   if (!isPhoneValid || !isEmailValid) {
+    overallError(true, "Поля имеют некорректные данные");
     return false;
   }
-  modal.style.display = "none";
-  tableToHide.style.display = "";
+
+  closeModal(modal);
 });
