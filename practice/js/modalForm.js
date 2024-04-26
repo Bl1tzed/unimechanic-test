@@ -14,6 +14,8 @@ const phoneNumberInput = document.querySelector("[name=phoneNumber]");
 const fileInput = document.querySelector(".modal__inputField__file");
 const fileInputLabel = document.querySelector(".modal__inputLabel__file");
 
+const tableToHide = document.querySelector("table");
+
 function PreviewImage() {
   var oFReader = new FileReader();
   oFReader.readAsDataURL(fileInput.files[0]);
@@ -28,6 +30,7 @@ function PreviewImage() {
 
 function closeModal(modal) {
   modal.style.display = "none";
+  tableToHide.style.display = "";
 }
 
 function validateEmail(email) {
@@ -44,6 +47,7 @@ function validatePhone(phone) {
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", () => {
     modal.style.display = "flex";
+    tableToHide.style.display = "none";
   });
 }
 for (let i = 0; i < modalCloseButton.length; i++) {
@@ -114,4 +118,5 @@ modalForm.addEventListener("submit", function (e) {
     return false;
   }
   modal.style.display = "none";
+  tableToHide.style.display = "";
 });

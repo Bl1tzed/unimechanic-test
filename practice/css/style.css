@@ -11,7 +11,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 99svw;
+  width: 100%;
   z-index: 9;
   background-color: var(--modal-background);
   justify-content: center;
