@@ -1,6 +1,17 @@
-@import "_variables.css";
+/* @import "_variables.css"; */
 @import "normalize.css";
 @import "./fonts/stylesheet.css";
+
+:root {
+  --modal-background: rgba(0, 0, 0, 0.42);
+
+  --white: rgba(255, 255, 255);
+
+  --button-color: rgba(229, 38, 110, 1);
+  --button-color-disabled: rgba(229, 38, 111, 0.5);
+
+  --input-border: rgb(179, 179, 179);
+}
 
 body {
   font-family: "Montserrat";
