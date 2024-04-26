@@ -154,7 +154,7 @@ body {
 }
 
 .modal__inputLabel__file {
-  --background: url("/practice/image/background.png");
+  --background: url("../image/background.png");
   display: flex;
   flex-direction: column;
   align-items: center;
